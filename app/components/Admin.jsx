@@ -6,8 +6,9 @@ import Agencies from "./Agencies";
 import Payment from "./Payment";
 import Subscriptions from "./Subscription";
 import Chat from "./Chat";
+import Image from "next/image";
 
-const Header = () => {
+const Admin = () => {
   const navLinks = [
     {
       name: "Dashboard",
@@ -67,7 +68,7 @@ const Header = () => {
         } md:left-0 duration-200 w-1/2 ${isCollapsed ?"md:w-20":"md:w-1/5"} md:static z-20`}
       >
         <div className="flex items-center p-4">
-          <img src="/logo.svg" className="w-12 h-12" />
+          <Image src="/logo.svg" alt="logo" width={12} height={12} className="w-12 h-12" />
           <span className={`text-white ${isCollapsed ?"hidden":""} font-semibold`}>CliManage</span>
         </div>
 
@@ -82,7 +83,7 @@ const Header = () => {
                 currentItem === index ? "bg-gray-500" : "bg-none"
               } w-full`}
             >
-              <img src={link.icon} className="w-6 h-6" />
+              <Image src={link.icon} alt="link" width={6} height={6} className="w-6 h-6" />
               <span className={`text-white ${isCollapsed ?"hidden":""}`}>{link.name}</span>
             </li>
           ))}
@@ -116,7 +117,7 @@ const Header = () => {
           </label>
 
           <button className="flex items-center justify-start my-4 p-4 text-white">
-            <img src="/logout.svg" className="h-6 w-6" />
+            <Image src="/logout.svg" alt="logout" width={6} height={6} className="h-6 w-6" />
             <span className={`${isCollapsed ? "hidden" : "block"} ml-4`}>
               Logout
             </span>
@@ -137,8 +138,11 @@ const Header = () => {
                 <span
                   className={`${!isDark ? "bg-black p-1 rounded-full" : ""}`}
                 >
-                  <img
+                  <Image
                     src="/sun.svg"
+                    alt="sun"
+                    width={4} 
+                    height={4}
                     className={`h-4 w-4 duration-200 ${
                       !isDark ? "brightness-200" : "brightness-50"
                     }`}
@@ -147,8 +151,11 @@ const Header = () => {
                 <span
                   className={`${isDark ? "bg-black p-1 rounded-full" : ""}`}
                 >
-                  <img
+                  <Image
                     src="/moon.svg"
+                    alt="moon"
+                    width={4}
+                    height={4}
                     className={`h-4 w-4 duration-200 ${
                       isDark ? "brightness-200" : "brightness-50"
                     }`}
@@ -162,7 +169,7 @@ const Header = () => {
       <div className="md:w-4/5">
         <div className="flex justify-between gap-8 md:justify-between w-full items-center p-8">
           <div className="md:hidden">
-            <img src="/logo.svg" className="w-12 h-12" />
+            <Image src="/logo.svg" alt="logo" width={12} height={12} className="w-12 h-12" />
           </div>
           <div className="hidden md:block">
             <h2 className="text-2xl font-semibold">Welcome Rio,</h2>
@@ -170,14 +177,14 @@ const Header = () => {
           </div>
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2 border-2 rounded-full p-1 md:p-3 lg:px-4">
-              <img src="/rupee.svg" className="w-4 h-4" />
+              <Image src="/rupee.svg" alt="rupee" width={4} height={4} className="w-4 h-4" />
               <p className="text-sm md:text-md lg:text-lg">67,000</p>
             </div>
             <span className="bg-gray-300 p-1 md:p-2 rounded-lg">
-              <img src="/notify.svg" className="w-6 h-6 " />
+              <Image src="/notify.svg" alt="notify" width={6} height={6} className="w-6 h-6 " />
             </span>
             <span className="bg-[#B7FB49] p-1 md:p-2 rounded-lg">
-              <img src="/english.svg" className="w-6 h-6" />
+              <Image src="/english.svg" alt="english" width={6} height={6} className="w-6 h-6" />
             </span>
             <button
               onClick={() => {
@@ -185,13 +192,16 @@ const Header = () => {
               }}
               className="md:hidden"
             >
-              <img className="w-6" src={`${navBar ? "/cross.svg":"ham.svg"}`} alt="" />
+              <Image className="w-6" src={`${navBar ? "/cross.svg":"ham.svg"}`} alt="menu" width={6} height={6} />
             </button>
           </div>
         </div>
         <div className="relative flex flex-col gap-4 items-start bg-[#736589] rounded-xl m-4 p-4 md:flex-row md:justify-center lg:justify-start md:items-center lg:h-28">
-          <img
+          <Image
             src="/prop-1.svg"
+            alt="prop-1"
+            width={12}
+            height={12}
             className="hidden lg:block absolute w-12 h-12 left-8 bottom-0"
           />
           <p className=" text-white md:max-w-sm lg:max-w-md lg:absolute lg:left-[15%]">
@@ -202,8 +212,11 @@ const Header = () => {
           <button className="bg-white px-4 py-2 rounded-full text-sm lg:absolute lg:right-[30%]">
             Lets Connect
           </button>
-          <img
+          <Image
             src="/prop-2.svg"
+            alt="prop-2"
+            width={32}
+            height={32}
             className="hidden lg:block absolute w-32 right-12 bottom-0"
           />
         </div>
@@ -225,4 +238,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Admin;
