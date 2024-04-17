@@ -26,11 +26,6 @@ const Admin = () => {
       path: "/admin/",
     },
     {
-      name: "Settings",
-      icon: "/setting.svg",
-      path: "/admin/",
-    },
-    {
       name: "Transactions",
       icon: "/transaction.svg",
       path: "/admin/",
@@ -76,6 +71,7 @@ const Admin = () => {
     const closeNavBar = (e) => {
       if (!btnRef.current.contains(e.target)) {
         setNavBar(false);
+        document.body.style.overflow = "unset";
       }
     };
 
@@ -92,7 +88,7 @@ const Admin = () => {
           navBar ? "left-0 h-screen" : "-left-96"
         } md:left-0 duration-200 w-1/2 ${
           isCollapsed ? "md:w-20" : "md:w-[30%] lg:w-[15%]"
-        } md:sticky z-20`}
+        } md:sticky md:h-screen md:top-0 z-20`}
       >
         <div className="flex items-center p-4">
           <Image
@@ -170,7 +166,11 @@ const Admin = () => {
             </span>
           </label>
 
-          <button className="flex items-center justify-start my-4 p-4 text-white">
+          <button
+            className={`flex items-center justify-start ${
+              isCollapsed ? "justify-center" : ""
+            } my-4 p-4 text-white`}
+          >
             <Image
               src="/logout.svg"
               alt="logout"
@@ -240,22 +240,22 @@ const Admin = () => {
               className="w-12 h-12"
             />
           </div>
-          <div className="hidden md:block">
+          <div className="-space-y-2 hidden md:block">
             <h2 className="text-[35px] font-semibold">Welcome Rio,</h2>
             <h2 className="text-[22px] font-medium text-[#2C2A29]">
               Admin Dashboard
             </h2>
           </div>
           <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2 border-2 rounded-full p-1 md:p-3 lg:px-4">
+            <div className="flex items-center gap-2 border border-[#7d7d7d] rounded-full p-1 md:p-2 lg:px-4">
               <Image
                 src="/rupee.svg"
                 alt="rupee"
                 width={4}
                 height={4}
-                className="w-4 h-4"
+                className="w-4 h-4 md:w-8 md:h-8"
               />
-              <p className="text-sm md:text-md lg:text-lg">67,000</p>
+              <p className="text-sm md:text-lg lg:text-xl">67,000</p>
             </div>
             <span className="bg-gray-300 p-1 md:p-2 rounded-lg">
               <Image
@@ -294,12 +294,12 @@ const Admin = () => {
             height={12}
             className="hidden lg:block absolute w-12 h-12 left-8 bottom-0"
           />
-          <p className=" text-white md:max-w-xs lg:max-w-md lg:absolute lg:left-[15%]">
+          <p className="text-white md:max-w-xs lg:max-w-md lg:absolute lg:left-[15%] font-poppins text-sm">
             You have completed your profile successfully, now if you have any
             query or experiencing any issue. Please let us know It would be
             great if we could assist you.
           </p>
-          <button className="bg-white px-4 py-2 rounded-full text-sm lg:absolute lg:right-[30%]">
+          <button className="bg-white px-4 py-2 rounded-full text-sm lg:absolute lg:right-[30%] font-poppins font-medium">
             Lets Connect
           </button>
           <Image
@@ -310,14 +310,14 @@ const Admin = () => {
             className="hidden lg:block absolute w-32 right-12 bottom-0"
           />
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 p-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 p-4 gap-4">
           <User />
           <User index={1} />
           <User />
           <User />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-4">
           <Agencies />
           <Payment />
           <Subscriptions />

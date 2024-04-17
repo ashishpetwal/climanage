@@ -2,8 +2,8 @@ import Image from "next/image";
 
 const Subscriptions = () => {
   return (
-    <div className="flex flex-col gap-4 items-center border p-4 rounded-lg bg-white">
-      <div className="flex items-center justify-between w-full mb-4 px-4">
+    <div className="flex flex-col gap-4 items-center border p-[1.5rem] rounded-lg bg-white">
+      <div className="flex items-center justify-between w-full mb-4">
         <h3 className="text-2xl font-semibold">Recent Subscriptions</h3>
         <Image src="/dot-v.svg" alt="dot-v" width={8} height={8} className="w-8 h-8" />
       </div>
