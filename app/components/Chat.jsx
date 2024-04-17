@@ -4,7 +4,7 @@ const Chat = () => {
   return (
     <div className="flex flex-col gap-4 items-center border p-[1.5rem] rounded-lg bg-white">
       <div className="flex items-center justify-between w-full mb-4">
-        <h3 className="text-2xl font-semibold">Recent Live Chats</h3>
+        <h3 className="text-xl leading-6 md:text-[1.4rem] md:leading-[1.5rem] font-semibold">Recent Live Chats</h3>
         <Image src="/dot-v.svg" alt="dot" width={8} height={8} className="w-8 h-8" />
       </div>
       <div className="flex justify-between items-center p-4 w-full border border-gray-400 rounded-2xl">

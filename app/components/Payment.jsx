@@ -4,7 +4,7 @@ const Payment = () => {
   return (
     <div className="flex flex-col items-center border gap-4 p-[1.5rem] rounded-lg bg-white">
       <div className="flex items-center justify-between w-full mb-4">
-        <h3 className="text-2xl font-semibold">Recent Payment Requests</h3>
+        <h3 className="text-xl leading-6 md:text-[1.4rem] md:leading-[1.5rem] font-semibold">Recent Payment Requests</h3>
         <Image src="/dot-v.svg" alt="dot-v" width={8} height={8} className="w-8 h-8" />
       </div>
       <div className="flex items-center justify-between p-4 w-full border rounded-2xl bg-[#B7FB49]">
