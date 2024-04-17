@@ -2,14 +2,14 @@ import Image from "next/image";
 
 const Agencies = () => {
   return (
-    <div className="flex flex-col justify-between items-center border p-4 rounded-lg shadow-md">
+    <div className="flex flex-col gap-4 items-center border p-4 rounded-lg bg-white">
       <div className="flex justify-between items-center w-full mb-4 px-4">
         <h3 className="text-2xl font-semibold">Recent Agencies/Freelancers</h3>
         <Image src="/dot-v.svg" alt="dot" width={8} height={8} className="w-8 h-8" />
       </div>
-      <div className="flex flex-col items-center justify-between w-full gap-4 border rounded-lg lg:flex-row p-4">
+      <div className="flex flex-col items-start justify-between w-full gap-4 border rounded-lg lg:flex-row p-4">
         <div className="flex gap-3">
-          <Image src="/staredo.png" alt="company" width={80} height={80} className="w-8 h-8 my-auto" />
+          <Image src="/staredo.png" alt="company" width={80} height={80} className="w-12 h-12 my-auto" />
           <div className="space-y-1">
             <p className="text-md font-semibold">Staredo Digital Agency</p>
             <p className="text-sm">100% Profile Complete</p>
