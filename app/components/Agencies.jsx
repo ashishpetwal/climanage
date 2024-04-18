@@ -27,7 +27,7 @@ const Agencies = () => {
             <p className="text-sm">100% Profile Complete</p>
           </div>
         </div>
-        <div className="space-y-2">
+        <div className="space-y-1">
           <span className="text-sm text-white font-medium bg-[#736589] px-4 py-1 rounded-full">
             Free Plan
           </span>

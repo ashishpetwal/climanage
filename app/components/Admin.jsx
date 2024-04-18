@@ -266,13 +266,13 @@ const Admin = () => {
                 className="w-6 h-6 "
               />
             </span>
-            <span className="bg-[#B7FB49] p-1 md:p-2 rounded-lg">
+            <span className=" p-1 md:p-2 rounded-lg">
               <Image
-                src="/english.svg"
+                src="/icon.png"
                 alt="english"
-                width={6}
-                height={6}
-                className="w-6 h-6"
+                width={60}
+                height={60}
+                className="w-10 h-10"
               />
             </span>
             <button ref={btnRef} onClick={toggleNavBar} className="md:hidden">
@@ -317,7 +317,7 @@ const Admin = () => {
           <User />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 p-4">
           <Agencies />
           <Payment />
           <Subscriptions />

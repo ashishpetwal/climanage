@@ -18,7 +18,7 @@ const Payment = () => {
           <h3 className="text-md text-[#424242] font-bold">Sushil Kumar</h3>
           <p className="text-[#858585]">Apr 9, 2024</p>
         </div>
-        <div>
+        <div className="space-y-[0.5]">
           <h3 className="text-sm text-[#141414] font-bold">Rs. 10,000</h3>
           <p className="text-sm text-[#858585] text-right">Pending</p>
         </div>
