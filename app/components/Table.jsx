@@ -58,9 +58,9 @@ const Table = () => {
                 </tr>
               </thead>
               <tbody class="divide-y divide-gray-200 bg-white dark:divide-neutral-700">
-                {agencies.map(() => {
+                {agencies.map((index) => {
                   return (
-                    <tr>
+                    <tr key={index}>
                       <td class="py-3 ps-4">
                         <div class="flex items-center h-5">
                           <input
