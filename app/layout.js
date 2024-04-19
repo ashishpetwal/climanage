@@ -1,5 +1,6 @@
 import { Outfit, Poppins } from "next/font/google";
 import "./globals.css";
+import { StateContextProvider } from "./context/state";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -21,7 +22,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${outfit.className} ${poppins.variable}`}>{children}</body>
+      <body className={`${outfit.className} ${poppins.variable}`}>
+        <StateContextProvider>
+          {children}
+        </StateContextProvider>
+      </body>
     </html>
   );
 }
