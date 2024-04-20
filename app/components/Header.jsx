@@ -39,7 +39,7 @@ const Header = () => {
             Admin Dashboard
           </h2>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex justify-center items-center gap-4">
           <div className="flex items-center gap-2 border border-[#7d7d7d] rounded-full p-1 md:p-2 lg:px-4">
             <Image
               src="/rupee.svg"
@@ -59,13 +59,13 @@ const Header = () => {
               className="w-6 h-6 "
             />
           </span>
-          <span className=" p-1 md:p-2 rounded-lg">
+          <span>
             <Image
               src="/icon.png"
               alt="icon"
               width={60}
               height={60}
-              className="w-10 h-10"
+              className="w-8 h-8 md:w-10 md:h-10 rounded-lg"
             />
           </span>
           <button ref={btnRef} onClick={toggleNavBar} className="md:hidden">
@@ -87,12 +87,12 @@ const Header = () => {
           height={12}
           className="hidden lg:block absolute w-12 h-12 left-8 bottom-0"
         />
-        <p className="text-white md:max-w-xs lg:max-w-md lg:absolute lg:left-[15%] font-poppins text-sm">
+        <p className="text-white md:max-w-xs lg:max-w-md lg:absolute lg:left-[10%] font-poppins text-sm">
           You have completed your profile successfully, now if you have any
           query or experiencing any issue. Please let us know It would be great
           if we could assist you.
         </p>
-        <button className="bg-white px-4 py-2 rounded-full text-sm lg:absolute lg:right-[30%] font-poppins font-medium">
+        <button className="bg-white px-4 py-2 rounded-full text-sm lg:absolute lg:right-[25%] xl:right-[30%] font-poppins font-medium">
           Lets Connect
         </button>
         <Image

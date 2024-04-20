@@ -27,7 +27,7 @@ const Chat = () => {
               <h3 className="text-sm text-nowrap lg:text-lg text-[#424242] font-semibold">
                 John David
               </h3>
-              <Image src="/dot.svg" width={4} height={4} />
+              <Image src="/dot.svg" alt="dot" width={4} height={4} />
               <h3 className="text-sm text-[#424242]">Freelancer</h3>
             </div>
             <p className="text-sm text-wrap text-[#858585]">
