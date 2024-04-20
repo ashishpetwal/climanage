@@ -39,7 +39,7 @@ const Table = () => {
                   </th>
                   <th
                     scope="col"
-                    class="px-6 py-3 text-start text-sm font-medium text-black"
+                    class="hidden md:table-cell px-6 py-3 text-start text-sm font-medium text-black"
                   >
                     Profile Status
                   </th>
@@ -57,7 +57,7 @@ const Table = () => {
                   </th>
                 </tr>
               </thead>
-              <tbody class="bg-white">
+              <tbody class="bg-white divide-y divide-[#606060]">
                 {agencies.map((index) => {
                   return (
                     <tr key={index}>
@@ -83,7 +83,7 @@ const Table = () => {
                             class="w-12 h-12 rounded-lg"
                           />
                           <span>
-                            <p className="text-[#141414] pr-4 text-sm md:text-base text-wrap">
+                            <p className="text-[#141414] pr-4 text-base text-wrap">
                               Staredo Digital Agency
                             </p>
                             <p className="text-[#969696] text-xs font-normal">
@@ -102,7 +102,7 @@ const Table = () => {
                           </p>
                         </span>
                       </td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                      <td class="hidden md:table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                         <span className="space-y-2">
                           <span className="text-xs py-2 px-3 rounded-full bg-[#B7FB49]">
                             Active
