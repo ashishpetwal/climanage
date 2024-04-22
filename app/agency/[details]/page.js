@@ -15,59 +15,51 @@ const Details = () => {
                 <div className="absolute -z-[10] bg-gradient-to-r rounded-full from-[#C8FC7433] to-[#8673A433] blur-2xl w-[70%] h-[70%]"></div>
                 <div className="absolute bottom-0 right-0 -z-[10] bg-gradient-to-r rounded-full from-[#c0e38980] to-[#9db47980] blur-2xl w-[50%] h-[40%]"></div>
                 <Header />
-                <section className="flex flex-col lg:flex-row gap-4 justify-start md:justify-between items-center p-4 mx-4">
+                <section className="flex flex-col lg:flex-row gap-6 lg:gap-4 justify-start md:justify-between items-center md:items-start lg:items-center flex-wrap p-4 mx-1">
                     <div className="flex items-center gap-3">
                         <Image src="/staredo.png" width={60} height={60} alt="staredo" className="rounded-lg" />
                         <div>
-                            <h2 className="text-xl font-medium">Staredo Digital Agency</h2>
+                            <h2 className="text-xl font-medium text-nowrap">Staredo Digital Agency</h2>
                             <p className="text-lg text-gray-500">abc@domain.com</p>
                         </div>
                     </div>
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-                        <div className="px-4 py-2 space-y-1 bg-[#C8FC74] rounded-lg shadow-xl shadow-gray-300">
-                            <h3 className="text-sm font-medium">Profile Status</h3>
-                            <form class="max-w-sm mx-auto">
-                                <select id="countries" class="bg-[#13A757] bg-opacity-30 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-20 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                    <option selected>Active</option>
-                                    <option value="US">United States</option>
-                                    <option value="CA">Canada</option>
-                                    <option value="FR">France</option>
-                                    <option value="DE">Germany</option>
-                                </select>
-                            </form>
-
+                    <div className="grid grid-cols-2 md:flex items-center justify-between gap-4">
+                        <div className="space-y-2 bg-[#C8FC74] p-2 rounded-lg shadow-lg">
+                            <h3 className="text-sm">Profile Status</h3>
+                            <select id="status" className="bg-[#13A757] bg-opacity-30 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-1.5">
+                                <option selected>Active</option>
+                                <option value="1">Inactive</option>
+                            </select>
                         </div>
-                        <div className="px-4 py-2 space-y-1 bg-[#736589] rounded-lg shadow-xl shadow-gray-300">
-                            <h3 className="text-sm text-white font-medium">Subscription</h3>
-                            <form class="max-w-sm mx-auto">
-                                <select id="countries" class="bg-[#d4d4d4] bg-opacity-20 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-32 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                    <option selected>Advanced Plan</option>
-                                    <option value="US">United States</option>
-                                    <option value="CA">Canada</option>
-                                    <option value="FR">France</option>
-                                    <option value="DE">Germany</option>
-                                </select>
-                            </form>
-
+                        <div className="space-y-2 bg-[#736589] p-2 rounded-lg text-white shadow-lg">
+                            <h3 className="text-sm">Subscription</h3>
+                            <select id="subs" className="bg-[#d4d4d4] bg-opacity-20 text-white text-sm rounded-lg block w-full p-1.5">
+                                <option className="bg-gray-500" selected>Advanced Plan</option>
+                                <option className="bg-gray-500" value="1">Inactive</option>
+                            </select>
                         </div>
-                        <div className="px-4 py-3 space-y-1 bg-[#474747] rounded-lg shadow-xl shadow-gray-300">
-                            <h3 className="text-sm text-white font-medium">Number of Clients</h3>
-                            <span className="bg-[#d4d4d4] bg-opacity-20 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-32 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">55</span>
+                        <div className="space-y-2 bg-[#474747] p-2 rounded-lg shadow-lg">
+                            <h3 className="text-sm text-white">Number of Clients</h3>
+                            <div id="countries" className="bg-[#d4d4d4] bg-opacity-20 text-white text-sm rounded-lg block w-full p-1.5">
+                                55
+                            </div>
                         </div>
-                        <div className="px-4 py-2 space-y-1 bg-white rounded-lg shadow-xl shadow-gray-300">
-                            <h3 className="text-sm text-black font-medium">Registered On</h3>
-                            <span className="bg-[#d4d4d4] bg-opacity-20 text-[#7b7b7b] text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">Apr 9, 2024</span>
+                        <div className="space-y-2 bg-white p-2 rounded-lg shadow-lg">
+                            <h3 className="text-sm">Registered On</h3>
+                            <div id="countries" className="bg-[#d4d4d4] bg-opacity-20 text-[#7b7b7b] text-sm rounded-lg block w-full p-1.5">
+                                Apr 9, 2024
+                            </div>
                         </div>
                     </div>
                 </section>
-                <section className="space-y-8 divide-y divide-[#cccccc]">
+                <section className="bg-white rounded-lg space-y-8 m-4 py-4">
                     <section className="p-4 mx-4">
                         <div className="space-y-4">
                             <h3 className="text-3xl font-medium">Profile Details:</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                 <div>
                                     <label for="first_name" class="block mb-2 text-lg text-[#878787] dark:text-white">First name (Owner)</label>
-                                    <input type="text" id="first_name" class="bg-[#f9f9f9]border border-gray-300 text-gray-900 text-sm rounded-lg outline-none block w-full p-2.5" placeholder="John" required />
+                                    <input type="text" id="first_name" class="bg-[#f9f9f9] border border-gray-300 text-gray-900 text-sm rounded-lg outline-none block w-full p-2.5" placeholder="John" required />
                                 </div>
                                 <div>
                                     <label for="first_name" class="block mb-2 text-lg text-[#878787] dark:text-white">Last name (Owner)</label>
@@ -109,7 +101,7 @@ const Details = () => {
                             </div>
                         </div>
                     </section>
-                    <section className="p-4 mx-4">
+                    <section className="p-4 mx-4 border-t">
                         <div className="space-y-4">
                             <h3 className="text-3xl font-medium">Bank Details:</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -172,7 +164,7 @@ const Details = () => {
                             </div>
                         </div>
                     </section>
-                    <section className="p-4 mx-4">
+                    <section className="p-4 mx-4 border-t">
                         <div className="space-y-4">
                             <h3 className="text-3xl font-medium">Address:</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -259,8 +251,8 @@ const Details = () => {
                             </div>
                         </div>
                     </section>
-                    <div className="p-2 my-4 mx-8 w-full bg-[#B7FB49] text-xl text-[#424242] font-semibold text-center font rounded-xl shadow-xl shadow-gray-300">
-                        <button className="w-full">Save</button>
+                    <div className="px-4 mx-4">
+                        <button type="button" class="text-[#424242] bg-[#B7FB49] w-full hover:bg-opacity-90 font-semibold rounded-lg text-lg py-4">Save</button>
                     </div>
                 </section>
             </div>

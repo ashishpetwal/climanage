@@ -111,7 +111,7 @@ const Admin = () => {
           <User />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 p-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 p-4 mb-12">
           <Agencies />
           <Payment />
           <Subscriptions />

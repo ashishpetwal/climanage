@@ -23,7 +23,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="flex justify-between gap-8 md:justify-between w-full items-center p-8">
+      <div className="flex justify-between gap-8 md:justify-between w-full items-center py-8 px-4">
         <div className="md:hidden">
           <Image
             src="/logo.svg"
