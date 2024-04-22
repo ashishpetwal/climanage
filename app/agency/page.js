@@ -22,7 +22,7 @@ const Agency = () => {
                 <div className="absolute -z-[10] bg-gradient-to-r rounded-full from-[#C8FC7433] to-[#8673A433] blur-2xl w-[70%] h-[70%]"></div>
                 <div className="absolute bottom-0 right-0 -z-[10] bg-gradient-to-r rounded-full from-[#c0e38980] to-[#9db47980] blur-2xl w-[50%] h-[40%]"></div>
                 <Header />
-                <section className="grid grid-cols-1 gap-4 p-4">
+                <section className="grid grid-cols-1 gap-4 py-4">
                     <div className="flex flex-col md:flex-row gap-4 md:gap-0 justify-between p-4">
                         <h2 className="text-2xl md:texts-3xl font-medium">All Agencies/Freelancers</h2>
                         <div className="flex gap-2 items-center">
@@ -74,9 +74,9 @@ const Agency = () => {
                         </div>
                         <div className="flex flex-col lg:flex-row gap-4 lg:gap-1.5">
                             <div className="flex justify-between gap-1.5">
-                                <button className="text-nowrap h-full px-1 md:px-4 py-[8.8px] text-[#30B26C] rounded-md border border-[#13A757]">Active (53)</button>
-                                <button className="text-nowrap h-full px-1 md:px-4 py-[8.8px] text-[#813E0E] rounded-md border border-[#813E0E]">Inactive (53)</button>
-                                <button className="text-nowrap h-full px-1 md:px-4 py-[8.8px] text-[#FE493C] rounded-md border border-[#FE493C]">Trashed (53)</button>
+                                <button className="text-nowrap h-full px-3.5 md:px-4 py-[8.8px] text-[#30B26C] rounded-md border border-[#13A757]">Active (53)</button>
+                                <button className="text-nowrap h-full px-3.5 md:px-4 py-[8.8px] text-[#813E0E] rounded-md border border-[#813E0E]">Inactive (53)</button>
+                                <button className="text-nowrap h-full px-3.5 md:px-4 py-[8.8px] text-[#FE493C] rounded-md border border-[#FE493C]">Trashed (53)</button>
                             </div>
                             <form className="">
                                 <label for="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
@@ -93,7 +93,7 @@ const Agency = () => {
                         </div>
                     </div>
                 </section>
-                <div className="grid gap-4 grid-cols-1 px-4">
+                <div className="grid gap-4 grid-cols-1 py-4">
                     <Table />
                     <div className="flex gap-2 px-4 mb-12 items-center justify-start md:justify-end">
                         <button onClick={() => { if (currentItem !== 0) { setCurrentItem(currentItem - 1) } }} className="bg-[#736589] text-white p-1 rounded-md"><IoIosArrowBack /></button>

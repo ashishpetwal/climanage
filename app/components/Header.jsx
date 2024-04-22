@@ -79,7 +79,7 @@ const Header = () => {
           </button>
         </div>
       </div>
-      <div className="relative flex flex-col gap-4 items-start bg-[#736589] rounded-xl mx-8 my-2 p-4 md:flex-row md:justify-center lg:justify-between md:items-center lg:h-28">
+      <div className="relative flex flex-col gap-4 items-start bg-[#736589] rounded-xl mx-4 my-2 p-4 md:flex-row md:justify-center lg:justify-between md:items-center lg:h-28">
         <div className="relative">
           <Image
             src="/prop-1.svg"

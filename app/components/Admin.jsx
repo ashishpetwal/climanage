@@ -9,6 +9,7 @@ import Chat from "./Chat";
 import Image from "next/image";
 import { useStateContext } from "../context/state";
 import Navbar from "./Navbar";
+import Header from "./Header";
 
 const Admin = () => {
 
@@ -22,7 +23,7 @@ const Admin = () => {
       <div className={`md:w-4/5 ${isCollapsed ? "md:w-[90%]" : ""}`}>
         <div className="absolute -z-[10] bg-gradient-to-r rounded-full from-[#C8FC7433] to-[#8673A433] blur-2xl w-[70%] h-[70%]"></div>
         <div className="absolute bottom-0 right-0 -z-[10] bg-gradient-to-r rounded-full from-[#c0e38980] to-[#9db47980] blur-2xl w-[50%] h-[40%]"></div>
-        <div className="flex justify-between gap-8 md:justify-between w-full items-center p-8">
+        {/* <div className="flex justify-between gap-8 md:justify-between w-full items-center p-8">
           <div className="md:hidden">
             <Image
               src="/logo.svg"
@@ -101,7 +102,8 @@ const Admin = () => {
             height={32}
             className="hidden lg:block absolute w-32 right-12 bottom-0"
           />
-        </div>
+        </div> */}
+        <Header />
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 p-4 gap-4">
           <User />
           <User index={1} />
