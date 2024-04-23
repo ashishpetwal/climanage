@@ -15,7 +15,7 @@ const Details = () => {
                 <div className="absolute -z-[10] bg-gradient-to-r rounded-full from-[#C8FC7433] to-[#8673A433] blur-2xl w-[70%] h-[70%]"></div>
                 <div className="absolute bottom-0 right-0 -z-[10] bg-gradient-to-r rounded-full from-[#c0e38980] to-[#9db47980] blur-2xl w-[50%] h-[40%]"></div>
                 <Header />
-                <section className="flex flex-col lg:flex-row gap-6 lg:gap-4 justify-start md:justify-between items-stretch md:items-start lg:items-center flex-wrap p-4 mx-1">
+                <section className="flex flex-col lg:flex-row gap-6 lg:gap-4 justify-start md:justify-between items-stretch md:items-start lg:items-center flex-wrap p-4">
                     <div className="flex items-center gap-3">
                         <Image src="/staredo.png" width={60} height={60} alt="staredo" className="rounded-lg" />
                         <div>
@@ -24,27 +24,27 @@ const Details = () => {
                         </div>
                     </div>
                     <div className="grid grid-cols-2 md:flex items-center justify-between gap-4">
-                        <div className="space-y-2 bg-[#C8FC74] p-2 rounded-lg shadow-lg">
+                        <div className="space-y-2 bg-[#C8FC74] p-3 rounded-lg shadow-lg">
                             <h3 className="text-sm">Profile Status</h3>
                             <select id="status" className="bg-[#13A757] bg-opacity-30 text-gray-900 text-sm rounded-lg block w-full p-1.5">
                                 <option selected>Active</option>
                                 <option value="1">Inactive</option>
                             </select>
                         </div>
-                        <div className="space-y-2 bg-[#736589] p-2 rounded-lg text-white shadow-lg">
+                        <div className="space-y-2 bg-[#736589] p-3 rounded-lg text-white shadow-lg">
                             <h3 className="text-sm">Subscription</h3>
                             <select id="subs" className="bg-[#d4d4d4] bg-opacity-20 text-white text-sm rounded-lg block w-full p-1.5">
                                 <option className="bg-gray-500" selected>Advanced Plan</option>
                                 <option className="bg-gray-500" value="1">Inactive</option>
                             </select>
                         </div>
-                        <div className="space-y-2 bg-[#474747] p-2 rounded-lg shadow-lg">
+                        <div className="space-y-2 bg-[#474747] p-3 rounded-lg shadow-lg">
                             <h3 className="text-sm text-white">Number of Clients</h3>
                             <div id="countries" className="bg-[#d4d4d4] bg-opacity-20 text-white text-sm rounded-lg block w-full p-1.5">
                                 55
                             </div>
                         </div>
-                        <div className="space-y-2 bg-white p-2 rounded-lg shadow-lg">
+                        <div className="space-y-2 bg-white p-3 rounded-lg shadow-lg">
                             <h3 className="text-sm">Registered On</h3>
                             <div id="countries" className="bg-[#d4d4d4] bg-opacity-20 text-[#7b7b7b] text-sm rounded-lg block w-full p-1.5">
                                 Apr 9, 2024
