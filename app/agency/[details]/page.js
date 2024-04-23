@@ -26,7 +26,7 @@ const Details = () => {
                     <div className="grid grid-cols-2 md:flex items-center justify-between gap-4">
                         <div className="space-y-2 bg-[#C8FC74] p-2 rounded-lg shadow-lg">
                             <h3 className="text-sm">Profile Status</h3>
-                            <select id="status" className="bg-[#13A757] bg-opacity-30 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-1.5">
+                            <select id="status" className="bg-[#13A757] bg-opacity-30 text-gray-900 text-sm rounded-lg block w-full p-1.5">
                                 <option selected>Active</option>
                                 <option value="1">Inactive</option>
                             </select>
