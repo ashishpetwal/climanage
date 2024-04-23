@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
 import { useStateContext } from "../context/state";
 import Image from "next/image";
+import { BiMenuAltRight } from "react-icons/bi";
+import { RxCross2 } from "react-icons/rx";
 
 const Header = () => {
   const btnRef = useRef();
@@ -69,13 +71,18 @@ const Header = () => {
             />
           </span>
           <button ref={btnRef} onClick={toggleNavBar} className="md:hidden">
-            <Image
+            {/* <Image
               className="w-6"
-              src={`${navBar ? "/cross.svg" : "ham.svg"}`}
+              src={`${navBar ? "/cross.svg" : "/ham.svg"}`}
               alt="menu"
               width={6}
               height={6}
-            />
+            /> */}
+            {navBar ? (
+              <RxCross2 className="w-6 h-6" />
+            ) : (
+              <BiMenuAltRight className="w-6 h-6" />
+            )}
           </button>
         </div>
       </div>
