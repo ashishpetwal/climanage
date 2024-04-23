@@ -17,7 +17,7 @@ const Details = () => {
                 <Header />
                 <section className="flex flex-col lg:flex-row gap-6 lg:gap-4 justify-start md:justify-between items-stretch md:items-start lg:items-center flex-wrap p-4">
                     <div className="flex items-center gap-3">
-                        <Image src="/staredo.png" width={60} height={60} alt="staredo" className="rounded-lg" />
+                        <Image src="/staredo.png" width={70} height={70} alt="staredo" className="rounded-lg" />
                         <div>
                             <h2 className="text-xl font-medium text-nowrap">Staredo Digital Agency</h2>
                             <p className="text-lg text-gray-500">abc@domain.com</p>
