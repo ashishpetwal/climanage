@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const Table = () => {
+const SubsTable = () => {
   const agencies = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   ];
@@ -47,7 +47,7 @@ const Table = () => {
                     scope="col"
                     className="hidden md:table-cell px-6 py-3 text-start text-sm font-medium text-black"
                   >
-                    Number of Clients
+                    Transaction
                   </th>
                   <th
                     scope="col"
@@ -95,7 +95,7 @@ const Table = () => {
                       <td className="hidden md:table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                         <span>
                           <p className="text-[#141414] text-base font-medium">
-                            Advanced Plan
+                            Plus Plan
                           </p>
                           <p className="text-[#969696] text-xs">
                             <span className="font-medium">Exp: </span>Apr 9 2024
@@ -115,12 +115,9 @@ const Table = () => {
                           </p>
                         </span>
                       </td>
-                      <td className="hidden md:table-cell px-6 py-4 whitespace-nowrap text-start text-sm font-medium">
-                        <button
-                          type="button"
-                          className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
-                        >
-                          55
+                      <td className="hidden md:table-cell px-6 py-4 whitespace-nowrap text-start text-sm">
+                        <button className="text-sm text-[#13A757] border border-[#13A757] px-4 py-1 rounded-full">
+                          Success
                         </button>
                       </td>
                       <td className="hidden md:table-cell px-6 py-4 whitespace-nowrap text-start text-sm text-gray-800">
@@ -142,4 +139,4 @@ const Table = () => {
   );
 };
 
-export default Table;
+export default SubsTable;

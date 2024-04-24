@@ -2,14 +2,15 @@
 import { useState } from "react";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
-import AgencyTable from "../components/Tables/AgencyTable";
 import { useStateContext } from "../context/state";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoMdAdd } from "react-icons/io";
+import { FaRegEdit } from "react-icons/fa";
+import { FaRupeeSign } from "react-icons/fa";
+import SubsTable from "../components/Tables/SubsTable";
 
-
-const Agency = () => {
+const Subscription = () => {
 
     const { isCollapsed } = useStateContext();
     const pages = [1, 2, 3, 4];
@@ -23,8 +24,54 @@ const Agency = () => {
                 <div className="absolute bottom-0 right-0 -z-[10] bg-gradient-to-r rounded-full from-[#c0e38980] to-[#9db47980] blur-2xl w-[50%] h-[40%]"></div>
                 <Header />
                 <section className="grid grid-cols-1 gap-4 py-4">
+                    <div className="flex flex-col gap-4 justify-between p-4">
+                        <h2 className="text-2xl font-medium">Subscription Plans</h2>
+                        <div className="flex flex-col gap-6 lg:gap-0 lg:flex-row justify-between">
+                            <div className="flex justify-between text-white bg-[#A394BF] p-4 px-6 rounded-lg w-[100%] lg:w-[30%]">
+                                <div className="space-y-4">
+                                    <p className="text-xl">Free</p>
+                                    <div className="text-4xl font-bold flex items-center">
+                                        <FaRupeeSign />
+                                        <span>0</span>
+                                    </div>
+                                    <p className="text-lg">Lifetime</p>
+                                </div>
+                                <div className="pt-1">
+                                    <button><FaRegEdit className="text-xl" /></button>
+                                </div>
+                            </div>
+                            <div className="flex justify-between text-white bg-[#9881AB] p-4 px-6 rounded-lg w-[100%] lg:w-[30%]">
+                                <div className="space-y-4">
+                                    <p className="text-xl">Plus</p>
+                                    <div className="text-4xl font-bold flex items-center">
+                                        <FaRupeeSign />
+                                        <span>1200</span>
+                                    </div>
+                                    <p className="text-lg">Per Month</p>
+                                </div>
+                                <div className="pt-1">
+                                    <button><FaRegEdit className="text-xl" /></button>
+                                </div>
+                            </div>
+                            <div className="flex justify-between text-white bg-[#736589] p-4 px-6 rounded-lg w-[100%] lg:w-[30%]">
+                                <div className="space-y-4">
+                                    <p className="text-xl">Pro</p>
+                                    <div className="text-4xl font-bold flex items-center">
+                                        <FaRupeeSign />
+                                        <span>1500</span>
+                                    </div>
+                                    <p className="text-lg">Per Month</p>
+                                </div>
+                                <div className="pt-1">
+                                    <button><FaRegEdit className="text-xl" /></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section className="grid grid-cols-1 gap-4 py-4">
                     <div className="flex flex-col md:flex-row gap-4 md:gap-0 justify-between p-4">
-                        <h2 className="text-2xl font-medium">All Agencies/Freelancers</h2>
+                        <h2 className="text-2xl font-medium">All Memberships</h2>
                         <div className="flex gap-2 items-center">
                             <button onClick={() => { if (currentItem !== 0) { setCurrentItem(currentItem - 1) } }} className="bg-[#736589] text-white p-1 rounded-md"><IoIosArrowBack /></button>
                             <div>
@@ -69,14 +116,14 @@ const Agency = () => {
                                 </form>
                             </div>
                             <div>
-                                <button className="bg-[#736589] text-nowrap h-full inline-flex px-2 gap-1 items-center text-white rounded-md">Add New <span className="hidden lg:inline"><IoMdAdd /></span></button>
+                                <button className="bg-[#736589] text-nowrap h-full inline-flex px-2 gap-1 items-center text-white rounded-md">All Coupons <span className="hidden lg:inline"><IoMdAdd /></span></button>
                             </div>
                         </div>
                         <div className="flex flex-col lg:flex-row gap-4 lg:gap-1.5">
                             <div className="flex justify-between gap-1.5">
-                                <button className="text-nowrap h-full px-3.5 md:px-4 py-[8.8px] text-[#30B26C] rounded-md border border-[#13A757]">Active (53)</button>
-                                <button className="text-nowrap h-full px-3.5 md:px-4 py-[8.8px] text-[#813E0E] rounded-md border border-[#813E0E]">Inactive (53)</button>
-                                <button className="text-nowrap h-full px-3.5 md:px-4 py-[8.8px] text-[#FE493C] rounded-md border border-[#FE493C]">Trashed (53)</button>
+                                <button className="text-nowrap h-full px-3.5 md:px-4 py-[8.8px] text-[#30B26C] rounded-md border border-[#13A757]">Success (53)</button>
+                                <button className="text-nowrap h-full px-3.5 md:px-4 py-[8.8px] text-[#813E0E] rounded-md border border-[#813E0E]">Failed (53)</button>
+                                <button className="text-nowrap h-full px-3.5 md:px-4 py-[8.8px] text-[#FE493C] rounded-md border border-[#FE493C]">Pending (53)</button>
                             </div>
                             <form className="">
                                 <label for="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
@@ -94,7 +141,7 @@ const Agency = () => {
                     </div>
                 </section>
                 <div className="grid gap-4 grid-cols-1 py-4">
-                    <AgencyTable />
+                    <SubsTable />
                     <div className="flex gap-2 px-4 mb-12 items-center justify-start md:justify-end">
                         <button onClick={() => { if (currentItem !== 0) { setCurrentItem(currentItem - 1) } }} className="bg-[#736589] text-white p-1 rounded-md"><IoIosArrowBack /></button>
                         <div>
@@ -112,4 +159,4 @@ const Agency = () => {
     )
 }
 
-export default Agency;
+export default Subscription;
