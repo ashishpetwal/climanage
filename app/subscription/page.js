@@ -120,7 +120,7 @@ const Subscription = () => {
                             </div>
                         </div>
                         <div className="flex flex-col lg:flex-row gap-4 lg:gap-1.5">
-                            <div className="flex justify-between gap-1.5">
+                            <div className="flex justify-between items-stretch gap-1.5">
                                 <button className="text-nowrap h-full px-3.5 md:px-4 py-[8.8px] text-[#30B26C] rounded-md border border-[#13A757]">Success (53)</button>
                                 <button className="text-nowrap h-full px-3.5 md:px-4 py-[8.8px] text-[#813E0E] rounded-md border border-[#813E0E]">Failed (53)</button>
                                 <button className="text-nowrap h-full px-3.5 md:px-4 py-[8.8px] text-[#FE493C] rounded-md border border-[#FE493C]">Pending (53)</button>
