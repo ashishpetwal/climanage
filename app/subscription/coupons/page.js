@@ -70,7 +70,7 @@ const Coupons = () => {
                     </div>
                 </section>
                 <section className="grid grid-cols-1 gap-4 py-4">
-                    <div className="flex flex-col md:flex-row gap-4 md:gap-0 justify-between p-4">
+                    <div className="flex flex-col md:flex-row gap-4 md:gap-0 justify-between px-4">
                         <h2 className="text-2xl font-medium">All Coupons</h2>
                         <div className="flex gap-2 items-center">
                             <button onClick={() => { if (currentItem !== 0) { setCurrentItem(currentItem - 1) } }} className="bg-[#736589] text-white p-1 rounded-md"><IoIosArrowBack /></button>
