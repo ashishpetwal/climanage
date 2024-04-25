@@ -1,16 +1,16 @@
 'use client'
 import { useState } from "react";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
-import { useStateContext } from "../context/state";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoMdAdd } from "react-icons/io";
 import { FaRegEdit } from "react-icons/fa";
 import { FaRupeeSign } from "react-icons/fa";
-import SubsTable from "../components/Tables/SubsTable";
+import { useStateContext } from "@/app/context/state";
+import Navbar from "@/app/components/Navbar";
+import Header from "@/app/components/Header";
+import CouponTable from "@/app/components/Tables/CouponTable";
 
-const Subscription = () => {
+const Coupons = () => {
 
     const { isCollapsed } = useStateContext();
     const pages = [1, 2, 3, 4];
@@ -71,7 +71,7 @@ const Subscription = () => {
                 </section>
                 <section className="grid grid-cols-1 gap-4 py-4">
                     <div className="flex flex-col md:flex-row gap-4 md:gap-0 justify-between p-4">
-                        <h2 className="text-2xl font-medium">All Memberships</h2>
+                        <h2 className="text-2xl font-medium">All Coupons</h2>
                         <div className="flex gap-2 items-center">
                             <button onClick={() => { if (currentItem !== 0) { setCurrentItem(currentItem - 1) } }} className="bg-[#736589] text-white p-1 rounded-md"><IoIosArrowBack /></button>
                             <div>
@@ -116,14 +116,14 @@ const Subscription = () => {
                                 </form>
                             </div>
                             <div>
-                                <button className="bg-[#736589] text-nowrap h-full inline-flex px-2 gap-1 items-center text-white rounded-md">All Coupons <span className="hidden lg:inline"><IoMdAdd /></span></button>
+                                <button className="bg-[#736589] text-nowrap h-full inline-flex px-2 gap-1 items-center text-white rounded-md">Add Coupon <span className="hidden lg:inline"><IoMdAdd /></span></button>
                             </div>
                         </div>
                         <div className="flex flex-col lg:flex-row gap-4 lg:gap-1.5">
                             <div className="flex justify-between gap-1.5">
-                                <button className="text-nowrap h-full px-3.5 md:px-4 py-[8.8px] text-[#30B26C] rounded-md border border-[#13A757]">Success (53)</button>
-                                <button className="text-nowrap h-full px-3.5 md:px-4 py-[8.8px] text-[#813E0E] rounded-md border border-[#813E0E]">Failed (53)</button>
-                                <button className="text-nowrap h-full px-3.5 md:px-4 py-[8.8px] text-[#FE493C] rounded-md border border-[#FE493C]">Pending (53)</button>
+                                <button className="text-nowrap h-full px-3.5 md:px-4 py-[8.8px] text-[#30B26C] rounded-md border border-[#13A757]">Active (1)</button>
+                                <button className="text-nowrap h-full px-3.5 md:px-4 py-[8.8px] text-[#813E0E] rounded-md border border-[#813E0E]">Inactive (2)</button>
+                                <button className="text-nowrap h-full px-3.5 md:px-4 py-[8.8px] text-[#FE493C] rounded-md border border-[#FE493C]">Trashed (3)</button>
                             </div>
                             <form className="">
                                 <label for="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
@@ -141,7 +141,7 @@ const Subscription = () => {
                     </div>
                 </section>
                 <div className="grid gap-4 grid-cols-1 py-4">
-                    <SubsTable />
+                    <CouponTable />
                     <div className="flex gap-2 px-4 mb-12 items-center justify-start md:justify-end">
                         <button onClick={() => { if (currentItem !== 0) { setCurrentItem(currentItem - 1) } }} className="bg-[#736589] text-white p-1 rounded-md"><IoIosArrowBack /></button>
                         <div>
@@ -159,4 +159,4 @@ const Subscription = () => {
     )
 }
 
-export default Subscription;
+export default Coupons;
