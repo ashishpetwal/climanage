@@ -20,21 +20,23 @@ const EditCouponCode = () => {
                 required
               />
             </div>
-            <div>
+            <form>
               <label
                 for="first_name"
                 className="block mb-2 text-lg text-[#878787]"
               >
                 Valid For
               </label>
-              <input
-                type="text"
-                id="price"
-                className="bg-[#f9f9f9] border border-gray-300 text-gray-900 text-sm rounded-lg outline-none block w-full p-2.5"
-                placeholder="Time"
-                required
-              />
-            </div>
+              <select
+                id="validity"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none block w-full p-2.5"
+              >
+                <option selected>Choose Plan</option>
+                <option value="1">Plus</option>
+                <option value="2">Pro</option>
+                <option value="3">Plus & Pro</option>
+              </select>
+            </form>
             <form>
               <label
                 for="first_name"
@@ -65,7 +67,7 @@ const EditCouponCode = () => {
                 datepicker
                 type="date"
                 value={new Date().toISOString().split("T")[0]}
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
                 placeholder="Select date"
               />
             </div>
@@ -80,7 +82,7 @@ const EditCouponCode = () => {
                 datepicker
                 type="date"
                 value={new Date().toISOString().split("T")[0]}
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
                 placeholder="Select date"
               />
             </div>
