@@ -1,6 +1,15 @@
+import { useState } from "react";
+import ColorInput from "./ColorInput";
 import Select from "./Select";
+import ImageInput from "./ImageInput";
 
 const Settings = () => {
+  const [primaryColor, setPrimaryColor] = useState("#453750");
+  const [secondaryColor, setSecondaryColor] = useState("#736589");
+  const [tertiaryColor, setTertiaryColor] = useState("#B7FB49");
+
+  const handleChange = (color, setColor) => (e) => setColor(e.target.value);
+
   return (
     <>
       <section className="p-4 mx-4">
@@ -14,13 +23,7 @@ const Settings = () => {
               >
                 Logo (width x height)
               </label>
-              <input
-                type="text"
-                id="plan_name"
-                className="bg-[#f9f9f9] border border-gray-300 text-gray-900 text-sm rounded-lg outline-none block w-full p-2.5"
-                placeholder="logo.png"
-                required
-              />
+              <ImageInput img={"https://images.pexels.com/photos/762020/pexels-photo-762020.jpeg"} alt="image.png" />
             </div>
             <div>
               <label
@@ -44,57 +47,36 @@ const Settings = () => {
               >
                 Website Status
               </label>
-              <input
-                type="text"
-                id="plan_name"
-                className="bg-[#f9f9f9] border border-gray-300 text-gray-900 text-sm rounded-lg outline-none block w-full p-2.5"
-                placeholder="Website status"
-                required
+              <Select
+                options={["Active", "Inactive"]}
+                onSelect={(option) => console.log(option)}
               />
             </div>
             <div>
-              <label
-                for="first_name"
-                className="block mb-2 text-lg text-[#878787]"
-              >
+              <label className="block mb-2 text-lg text-[#878787]">
                 Primary Color
               </label>
-              <input
-                type="text"
-                id="plan_name"
-                className="bg-[#f9f9f9] border border-gray-300 text-gray-900 text-sm rounded-lg outline-none block w-full p-2.5"
-                placeholder="#453750"
-                required
+              <ColorInput
+                color={primaryColor}
+                onChange={handleChange(primaryColor, setPrimaryColor)}
               />
             </div>
             <div>
-              <label
-                for="first_name"
-                className="block mb-2 text-lg text-[#878787]"
-              >
-               Secondary Color
+              <label className="block mb-2 text-lg text-[#878787]">
+                Primary Color
               </label>
-              <input
-                type="text"
-                id="plan_name"
-                className="bg-[#f9f9f9] border border-gray-300 text-gray-900 text-sm rounded-lg outline-none block w-full p-2.5"
-                placeholder="#736589"
-                required
+              <ColorInput
+                color={secondaryColor}
+                onChange={handleChange(secondaryColor, setSecondaryColor)}
               />
             </div>
             <div>
-              <label
-                for="first_name"
-                className="block mb-2 text-lg text-[#878787]"
-              >
-                Tertiary Color
+              <label className="block mb-2 text-lg text-[#878787]">
+                Primary Color
               </label>
-              <input
-                type="text"
-                id="plan_name"
-                className="bg-[#f9f9f9] border border-gray-300 text-gray-900 text-sm rounded-lg outline-none block w-full p-2.5"
-                placeholder="#B7FB49"
-                required
+              <ColorInput
+                color={tertiaryColor}
+                onChange={handleChange(tertiaryColor, setTertiaryColor)}
               />
             </div>
             <div>
@@ -136,9 +118,9 @@ const Settings = () => {
           </div>
         </div>
       </section>
-      <section className="p-4 mx-4 border-t border-[#cccccc]">
+      <section className="py-4 mx-8 border-t border-[#cccccc]">
         <div className="space-y-4">
-          <h3 className="text-2xl font-medium">Payment Gateway Details::</h3>
+          <h3 className="text-2xl font-medium">Payment Gateway Details:</h3>
           <div className="grid grid-cols-1 gap-4">
             <div>
               <label
