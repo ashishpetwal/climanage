@@ -48,7 +48,7 @@ const Settings = () => {
                 Website Status
               </label>
               <Select
-                options={["Active", "Inactive"]}
+                options={["Live", "Under Construction"]}
                 onSelect={(option) => console.log(option)}
               />
             </div>

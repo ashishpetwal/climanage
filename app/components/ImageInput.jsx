@@ -1,6 +1,6 @@
 const ImageInput = ({ img, alt }) => {
   return (
-    <div className="flex items-center    mb-4 bg-[#f9f9f9] border border-gray-300 text-gray-900 text-sm rounded-lg outline-none w-full p-2 cursor-pointer">
+    <div className="flex items-center mb-4 bg-[#f9f9f9] border border-gray-300 text-gray-900 text-sm rounded-lg outline-none w-full p-2 cursor-pointer">
       <input
         type="file"
         // value={color}
