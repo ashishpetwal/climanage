@@ -9,7 +9,7 @@ const ColorInput = ({ color, onChange }) => {
       />
       <div
         style={{ backgroundColor: color }}
-        className="w-5 h-5 border border-gray-300 rounded"
+        className="w-5 h-5 rounded"
       ></div>
     </div>
   );

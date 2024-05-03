@@ -24,7 +24,7 @@ const SettingsPage = () => {
                         <h2 className="text-2xl font-medium">Settings</h2>
                     </div>
                 </section>
-                <section className="bg-white rounded-lg space-y-8 mx-4 mb-4 py-4">
+                <section className="bg-white rounded-lg space-y-8 mx-4 mb-8 py-4">
                     <Settings />
                     <div className="px-4 pb-4 mx-4">
                         <button type="button" class="text-[#424242] bg-[#B7FB49] w-full hover:bg-opacity-90 font-semibold rounded-lg text-lg py-4">Save</button>
