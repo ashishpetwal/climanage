@@ -226,7 +226,7 @@ const Support = () => {
                                             <p className="bg-[#B9B2C4] text-[#3E3E3E] p-1 rounded-lg text-center w-32 mx-auto">Apr 5, 2024</p>
                                             <div className="space-y-4">
                                                 <div className="text-[#3e3e3e] bg-[#B9B2C4] p-4 rounded-b-2xl rounded-tr-2xl max-w-md">
-                                                    Hi there,I'm having an issue can you please assist me?
+                                                    Hi there,I&apos;m having an issue can you please assist me?
                                                 </div>
                                                 <div className="text-[#3e3e3e] bg-[#B9B2C4] p-4 rounded-b-2xl rounded-tl-2xl max-w-md ml-auto">
                                                     Hi John,Sure, It would be great if I could help you.
