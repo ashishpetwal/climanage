@@ -68,8 +68,8 @@ const Support = () => {
                                     </div>
                                     <div className="space-y-4 p-4 bg-white h-screen">
                                         {
-                                            chats.map(() => {
-                                                return <div className="flex justify-between items-center p-4 w-full border border-gray-400 rounded-2xl cursor-pointer" onClick={openChat}>
+                                            chats.map((index) => {
+                                                return <div key={index} className="flex justify-between items-center p-4 w-full border border-gray-400 rounded-2xl cursor-pointer" onClick={openChat}>
                                                     <div className="flex items-center gap-2">
                                                         <Image
                                                             src="/man.png"
