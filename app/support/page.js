@@ -41,11 +41,11 @@ const Support = () => {
                         <h2 className="text-2xl font-medium py-4">Support</h2>
                         <div className="flex flex-col gap-6 lg:gap-0 lg:flex-row justify-between">
                             <div className="flex w-full">
-                                <div className={`${chatOpened ? "hidden lg:block lg:w-[40%]":"w-[100%] lg:block lg:w-[40%]"} border-r border-[#cccccc]`}>
-                                    <div className="bg-[#736589] p-3 space-y-8 rounded-t-2xl lg:rounded-t-none lg:rounded-tl-2xl">
-                                        <div className="flex justify-between items-center border-b border-b-[#cccccc77] p-2.5">
+                                <div className={`${chatOpened ? "hidden lg:block lg:w-[40%]":"w-[100%] lg:block lg:w-[40%]"}`}>
+                                    <div className="bg-[#736589] py-3 space-y-8 rounded-t-2xl lg:rounded-t-none lg:rounded-tl-2xl">
+                                        <div className="flex justify-between items-center border-b border-b-[#cccccc77] p-5">
                                             <div className="flex justify-between items-center gap-4">
-                                                <Image src="/logo.svg" width={45} height={45} alt="staredo" />
+                                                <Image src="/support.svg" width={45} height={45} alt="staredo" />
                                                 <div>
                                                     <h3 className="text-lg font-medium text-white">Climanage Support</h3>
                                                     <p className="text-sm text-[#969696]">Last Seen on Apr 9, 2024 at 09:00 pm</p>
@@ -55,7 +55,7 @@ const Support = () => {
                                         </div>
                                         <div>
                                             <form className="">
-                                                <div className="relative">
+                                                <div className="relative mx-5">
                                                     <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                                                         <svg className="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
@@ -66,11 +66,11 @@ const Support = () => {
                                             </form>
                                         </div>
                                     </div>
-                                    <div className="space-y-4 p-4 bg-white h-screen">
+                                    <div className="space-y-4 p-5 bg-white h-screen border border-[#cccccc]">
                                         {
                                             chats.map((index) => {
                                                 return <div key={index} className="flex justify-between items-center p-4 w-full border border-gray-400 rounded-2xl cursor-pointer" onClick={openChat}>
-                                                    <div className="flex items-center gap-2">
+                                                    <div className="flex items-center gap-2 mx-2">
                                                         <Image
                                                             src="/man.png"
                                                             alt="man"
@@ -107,7 +107,7 @@ const Support = () => {
                                     </div>
                                 </div>
                                 <div className={`${!chatOpened ? "hidden lg:block lg:w-[60%]":"w-[100%] lg:block lg:w-[60%]"} rounded-tr-2xl bg-white`}>
-                                    <div className="flex justify-between items-center p-4 w-full border border-gray-400 bg-[#B9B2C4] rounded-t-2xl lg:rounded-t-none lg:rounded-tr-2xl">
+                                    <div className="flex justify-between items-center p-4 w-full bg-[#B9B2C4] rounded-t-2xl lg:rounded-t-none lg:rounded-tr-2xl">
                                         <button className="lg:hidden" onClick={openChat}><IoIosArrowBack className="textb-black text-sm font-bold" /></button>
                                         <div className="flex items-center gap-2">
                                             <Image
@@ -139,7 +139,7 @@ const Support = () => {
                                         <div className="space-y-8">
                                             <p className="bg-[#B9B2C4] text-[#3E3E3E] p-1 rounded-lg text-center w-32 mx-auto">Apr 5, 2024</p>
                                             <div className="space-y-4">
-                                                <div className="text-[#3e3e3e] bg-[#B9B2C4] p-4 rounded-b-2xl rounded-tr-2xl max-w-md relative ml-2">
+                                                <div className="text-[#3e3e3e] bg-[#B9B2C4] px-4 py-2 rounded-b-2xl rounded-tr-2xl max-w-md relative ml-2">
                                                     Hi there,I&apos;m having an issue can you please assist me?
                                                     <span className="text-[#858585] text-right text-sm block">10:00 am</span>
                                                     <div style={
@@ -155,10 +155,10 @@ const Support = () => {
                                                         }
                                                     } className="rotate-45"></div>
                                                 </div>
-                                                <div className="text-[#3e3e3e] bg-[#B9B2C4] p-4 rounded-b-2xl rounded-tl-2xl max-w-md ml-auto relative mr-2">
+                                                <div className="text-[#3e3e3e] bg-[#B9B2C4] px-4 py-2 rounded-b-2xl rounded-tl-2xl max-w-md ml-auto relative mr-2">
                                                     Hi John,Sure, It would be great if I could help you.
                                                     Can you please let me know, What kind of issue are you facing.
-                                                    <span className="text-[#858585] text-right text-sm block">10:00 am</span>
+                                                    <span className="text-[#858585] text-right text-sm mb-0 block">10:00 am</span>
                                                     <div style={{
                                                         width: "0",
                                                         height: "0",
