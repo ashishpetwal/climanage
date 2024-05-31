@@ -1,6 +1,7 @@
-'use client'
+"use client";
 import Image from "next/image";
 import { useStateContext } from "../context/state";
+import Link from "next/link";
 
 const Navbar = () => {
   const navLinks = [
@@ -12,27 +13,27 @@ const Navbar = () => {
     {
       name: "Agencies",
       icon: "/agency.svg",
-      path: "/admin/",
+      path: "/agency/",
     },
     {
       name: "Subscriptions",
       icon: "/subs.svg",
-      path: "/admin/",
+      path: "/subscription/",
+    },
+    {
+      name: "Settings",
+      icon: "/setting.svg",
+      path: "/settings/",
     },
     {
       name: "Transactions",
       icon: "/transaction.svg",
-      path: "/admin/",
+      path: "/transactions/",
     },
     {
       name: "Support",
       icon: "/support.svg",
-      path: "/admin/",
-    },
-    {
-      name: "Team",
-      icon: "/team.svg",
-      path: "/admin/",
+      path: "/support/",
     },
   ];
 
@@ -45,7 +46,7 @@ const Navbar = () => {
     handleModeToggle,
     toggleNavBar,
     handleCollapse,
-    setCurrentItem
+    setCurrentItem,
   } = useStateContext();
 
   return (
@@ -75,33 +76,35 @@ const Navbar = () => {
 
       <ul className="flex items-start justify-center mx-auto w-full flex-col gap-4">
         {navLinks.map((link, index) => (
-          <li
-            key={index}
-            onClick={() => {
-              setCurrentItem(index);
-            }}
-            className={`relative flex items-center ${
-              isCollapsed ? "justify-center" : ""
-            } gap-4 px-4 py-2 cursor-pointer ${
-              currentItem === index ? "bg-gray-500" : "bg-none"
-            } w-full`}
-          >
-            <Image
-              src={link.icon}
-              alt="link"
-              width={6}
-              height={6}
-              className="w-6 h-6"
-            />
-            <span className={`text-white ${isCollapsed ? "hidden" : ""}`}>
-              {link.name}
-            </span>
-            <span
-              className={`w-1 h-6 hidden ${
-                currentItem === index && !isCollapsed ? "md:block" : "hidden"
-              } absolute right-0 bg-[#d9d9d9]`}
-            ></span>
-          </li>
+          <Link className="w-full" href={link.path} key={index}>
+            <li
+              // key={index}
+              onClick={() => {
+                setCurrentItem(index);
+              }}
+              className={`relative flex items-center ${
+                isCollapsed ? "justify-center" : ""
+              } gap-4 px-4 py-2 cursor-pointer ${
+                currentItem === index ? "bg-gray-500" : "bg-none"
+              } w-full`}
+            >
+              <Image
+                src={link.icon}
+                alt="link"
+                width={6}
+                height={6}
+                className="w-6 h-6"
+              />
+              <span className={`text-white ${isCollapsed ? "hidden" : ""}`}>
+                {link.name}
+              </span>
+              <span
+                className={`w-1 h-6 hidden ${
+                  currentItem === index && !isCollapsed ? "md:block" : "hidden"
+                } absolute right-0 bg-[#d9d9d9]`}
+              ></span>
+            </li>
+          </Link>
         ))}
       </ul>
 

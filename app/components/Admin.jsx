@@ -12,10 +12,18 @@ import Navbar from "./Navbar";
 import Header from "./Header";
 
 const Admin = () => {
-
   const btnRef = useRef(null);
 
-  const {navBar,setNavBar, isCollapsed, isDark, currentItem, handleModeToggle, toggleNavBar, handleCollapse} = useStateContext()
+  const {
+    navBar,
+    setNavBar,
+    isCollapsed,
+    isDark,
+    currentItem,
+    handleModeToggle,
+    toggleNavBar,
+    handleCollapse,
+  } = useStateContext();
 
   return (
     <header className="relative flex justify-center md:justify-between lg:justify-start gap-8">
@@ -111,11 +119,15 @@ const Admin = () => {
           <User />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 p-4 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-2 gap-4 p-4 mb-12">
           <Agencies />
-          <Payment />
-          <Subscriptions />
-          <Chat />
+          {/* <Payment /> */}
+          <div className="lg:col-start-1 lg:row-start-2">
+            <Subscriptions />
+          </div>
+          <div className="lg:row-span-2 lg:col-start-2 lg:row-start-1">
+            <Chat />
+          </div>
         </div>
       </div>
     </header>
