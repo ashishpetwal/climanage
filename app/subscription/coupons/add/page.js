@@ -5,10 +5,41 @@ import { useStateContext } from "@/app/context/state";
 import Navbar from "@/app/components/Navbar";
 import Header from "@/app/components/Header";
 import AddCouponCode from "@/app/components/Addcoupon";
+import { useState } from "react";
+import { createCoupon } from "@/services/coupon";
 
 const AddCoupon = () => {
 
     const { isCollapsed } = useStateContext();
+
+    const [couponCode, setCouponCode] = useState({
+        couponName: "",
+        status: "",
+        validForPlanId: 0,
+        startDate: new Date(),
+        expiryDate: new Date(),
+    });
+
+    const handleChange = (e) => {
+        setCouponCode({
+            ...couponCode,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    const handleSave = () => {
+        const payload = {
+            ...couponCode,
+            status: couponCode.status.toUpperCase(),
+            startDate: new Date(couponCode.startDate),
+            expiryDate: new Date(couponCode.expiryDate),
+        };
+        createCoupon(payload).then((res) => {
+            console.log(res);
+        }).catch((err) => {
+            console.log(err);
+        });
+    };
 
     return (
         <section className="relative flex justify-center md:justify-between lg:justify-start gap-8">
@@ -64,9 +95,9 @@ const AddCoupon = () => {
                     </div>
                 </section>
                 <section className="bg-white rounded-lg space-y-8 m-4 py-4">
-                    <AddCouponCode />
+                    <AddCouponCode couponCode={couponCode} setCouponCode={setCouponCode} handleChange={handleChange} />
                     <div className="px-4 pb-4 mx-4">
-                        <button type="button" class="text-[#424242] bg-[#B7FB49] w-full hover:bg-opacity-90 font-semibold rounded-lg text-lg py-4">Save</button>
+                        <button onClick={handleSave} type="button" class="text-[#424242] bg-[#B7FB49] w-full hover:bg-opacity-90 font-semibold rounded-lg text-lg py-4">Save</button>
                     </div>
                 </section>
             </div>

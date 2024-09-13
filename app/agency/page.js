@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import AgencyTable from "../components/Tables/AgencyTable";
@@ -7,6 +7,7 @@ import { useStateContext } from "../context/state";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoMdAdd } from "react-icons/io";
+import { getAgencyData } from "@/services/agency";
 
 
 const Agency = () => {
@@ -14,6 +15,14 @@ const Agency = () => {
     const { isCollapsed } = useStateContext();
     const pages = [1, 2, 3, 4];
     const [currentItem, setCurrentItem] = useState(0);
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        getAgencyData().then(data => {
+            console.log(data);
+            setItems(data);
+        });
+    }, []);
 
     return (
         <section className="relative flex justify-center md:justify-between lg:justify-start gap-8">
@@ -94,7 +103,7 @@ const Agency = () => {
                     </div>
                 </section>
                 <div className="grid gap-4 grid-cols-1 py-4">
-                    <AgencyTable />
+                    <AgencyTable agencies={items} />
                     <div className="flex gap-2 px-4 mb-12 items-center justify-start md:justify-end">
                         <button onClick={() => { if (currentItem !== 0) { setCurrentItem(currentItem - 1) } }} className="bg-[#736589] text-white p-1 rounded-md"><IoIosArrowBack /></button>
                         <div>

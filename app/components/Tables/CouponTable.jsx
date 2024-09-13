@@ -1,27 +1,7 @@
 import Image from "next/image";
 import { FiCopy } from "react-icons/fi";
 
-const CouponTable = () => {
-  const coupons = [
-    {
-      code: "TRIAL30",
-      validFor: "Plus,Pro",
-      status: "Active",
-      expiry: "June 9, 2024",
-    },
-    {
-      code: "CLMG15",
-      validFor: "Pro",
-      status: "Inactive",
-      expiry: "Sep 2, 2024",
-    },
-    {
-      code: "STAREDO30",
-      validFor: "Plus",
-      status: "Inactive",
-      expiry: "Oct 12, 2024",
-    },
-  ];
+const CouponTable = ({coupons}) => {
 
   return (
     <div className="flex flex-col p-4">
@@ -89,12 +69,12 @@ const CouponTable = () => {
                         <div className="flex items-center">
                           <span>
                             <p className="text-[#141414] pr-4 text-base text-wrap">
-                              {item.code}
+                              {item.couponName}
                             </p>
                           </span>
                           <button
                             onClick={() => {
-                              navigator.clipboard.writeText(item.code);
+                              navigator.clipboard.writeText(item.couponName);
                             }}
                           >
                             <FiCopy className="text-base text-[#969696] font-bold" />
@@ -104,13 +84,13 @@ const CouponTable = () => {
                       <td className="hidden md:table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                         <span>
                           <p className="text-[#141414] text-base font-medium">
-                            {item.validFor} 
+                            {item.validForPlanId === 1 ? 'Plus' : item.validForPlanId === 2 ? 'Pro' : 'Plus & Pro'} 
                           </p>
                         </span>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                         <span className="space-y-2">
-                          <span className={`text-xs py-2 px-3 rounded-full ${item.status==="Active"?"bg-[#B7FB49]":"bg-[#813E0E] text-white"}`}>
+                          <span className={`text-xs py-2 px-3 rounded-full ${item.status==="ACTIVE"?"bg-[#B7FB49]":"bg-[#813E0E] text-white"}`}>
                             {item.status}
                           </span>
                         </span>
@@ -118,7 +98,7 @@ const CouponTable = () => {
                       <td className="hidden md:table-cell px-6 py-4 whitespace-nowrap text-start text-sm text-gray-800">
                         <span>
                           <p className="text-[#141414] text-base font-medium">
-                            {item.expiry}
+                            {new Date(item.expiryDate).toLocaleDateString('en-IN')}
                           </p>
                         </span>
                       </td>

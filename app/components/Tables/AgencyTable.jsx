@@ -1,10 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 
-const AgencyTable = () => {
-  const agencies = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-  ];
-
+const AgencyTable = ({ agencies }) => {
   return (
     <div className="flex flex-col p-4">
       <div className="-m-1.5 overflow-x-auto">
@@ -58,7 +55,7 @@ const AgencyTable = () => {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-[#6060604f]">
-                {agencies.map((index) => {
+                {agencies.map((item, index) => {
                   return (
                     <tr key={index}>
                       <td className="py-3 ps-4">
@@ -74,23 +71,25 @@ const AgencyTable = () => {
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
-                        <div className="flex items-center gap-4">
-                          <Image
-                            src="/staredo.png"
-                            width={100}
-                            height={100}
-                            alt="avatar"
-                            className="w-12 h-12 rounded-lg"
-                          />
-                          <span>
-                            <p className="text-[#141414] pr-4 text-base text-wrap">
-                              Staredo Digital Agency
-                            </p>
-                            <p className="text-[#969696] text-xs font-normal">
-                              abc@domain.com
-                            </p>
-                          </span>
-                        </div>
+                        <Link href={`/agency/${item.id}`}>
+                          <div className="flex items-center gap-4">
+                            <Image
+                              src="/staredo.png"
+                              width={100}
+                              height={100}
+                              alt="avatar"
+                              className="w-12 h-12 rounded-lg"
+                            />
+                            <span>
+                              <p className="text-[#141414] pr-4 text-base text-wrap">
+                                {item.businessName}
+                              </p>
+                              <p className="text-[#969696] text-xs font-normal">
+                                {item.email}
+                              </p>
+                            </span>
+                          </div>
+                        </Link>
                       </td>
                       <td className="hidden md:table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                         <span>
@@ -105,7 +104,7 @@ const AgencyTable = () => {
                       <td className="hidden md:table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                         <span className="space-y-2">
                           <span className="text-xs py-2 px-3 rounded-full bg-[#B7FB49]">
-                            Active
+                            {item.status}
                           </span>
                           <p className="text-[#969696] text-xs pl-2">
                             <span className="font-bold text-green-500">
@@ -126,7 +125,9 @@ const AgencyTable = () => {
                       <td className="hidden md:table-cell px-6 py-4 whitespace-nowrap text-start text-sm text-gray-800">
                         <span>
                           <p className="text-[#141414] text-base font-medium">
-                            Apr 9 2024
+                            {new Date(item.createdAt).toLocaleDateString(
+                              "en-IN"
+                            )}
                           </p>
                         </span>
                       </td>

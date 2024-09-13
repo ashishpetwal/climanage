@@ -1,10 +1,6 @@
 import Image from "next/image";
 
-const SubsTable = () => {
-  const agencies = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-  ];
-
+const SubsTable = ({ memeberships }) => {
   return (
     <div className="flex flex-col p-4">
       <div className="-m-1.5 overflow-x-auto">
@@ -58,7 +54,7 @@ const SubsTable = () => {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-[#6060604f]">
-                {agencies.map((index) => {
+                {memeberships?.map((item, index) => {
                   return (
                     <tr key={index}>
                       <td className="py-3 ps-4">
@@ -84,10 +80,10 @@ const SubsTable = () => {
                           />
                           <span>
                             <p className="text-[#141414] pr-4 text-base text-wrap">
-                              Staredo Digital Agency
+                              {item.entity.businessName}
                             </p>
                             <p className="text-[#969696] text-xs font-normal">
-                              abc@domain.com
+                              {item.entity.email}
                             </p>
                           </span>
                         </div>
@@ -95,17 +91,18 @@ const SubsTable = () => {
                       <td className="hidden md:table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                         <span>
                           <p className="text-[#141414] text-base font-medium">
-                            Plus Plan
+                            {item.subscriptionPlan.planName} Plan
                           </p>
                           <p className="text-[#969696] text-xs">
-                            <span className="font-medium">Exp: </span>Apr 9 2024
+                            <span className="font-medium">Exp: </span>
+                            {new Date(item.endDate).toLocaleDateString("en-IN")}
                           </p>
                         </span>
                       </td>
                       <td className="hidden md:table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                         <span className="space-y-2">
                           <span className="text-xs py-2 px-3 rounded-full bg-[#B7FB49]">
-                            Active
+                            {item.entity.status}
                           </span>
                           <p className="text-[#969696] text-xs pl-2">
                             <span className="font-bold text-green-500">

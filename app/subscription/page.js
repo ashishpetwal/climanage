@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import { useStateContext } from "../context/state";
@@ -9,12 +9,26 @@ import { IoMdAdd } from "react-icons/io";
 import { FaRegEdit } from "react-icons/fa";
 import { FaRupeeSign } from "react-icons/fa";
 import SubsTable from "../components/Tables/SubsTable";
+import { getSubscriptionData } from "@/services/subscription";
+import { getMembershipData } from "@/services/membership";
+import Link from "next/link";
 
 const Subscription = () => {
 
     const { isCollapsed } = useStateContext();
     const pages = [1, 2, 3, 4];
     const [currentItem, setCurrentItem] = useState(0);
+    const [subscriptions, setSubscriptions] = useState([]);
+    const [memeberships, setMemberships] = useState([]);
+
+    useEffect(() => {
+        getSubscriptionData().then(data => {
+            setSubscriptions(data);
+        });
+        getMembershipData().then(data => {
+            setMemberships(data);
+        });
+    }, []);
 
     return (
         <section className="relative flex justify-center md:justify-between lg:justify-start gap-8">
@@ -29,10 +43,10 @@ const Subscription = () => {
                         <div className="flex flex-col gap-6 lg:gap-0 lg:flex-row justify-between">
                             <div className="flex justify-between text-white bg-[#A394BF] p-4 px-6 rounded-lg w-[100%] lg:w-[32%]">
                                 <div className="space-y-4">
-                                    <p className="text-xl">Free</p>
+                                    <p className="text-xl">{subscriptions[0]?.planName}</p>
                                     <div className="text-4xl font-bold flex items-center">
                                         <FaRupeeSign />
-                                        <span>0</span>
+                                        <span>{subscriptions[0]?.planCost}</span>
                                     </div>
                                     <p className="text-lg">Lifetime</p>
                                 </div>
@@ -42,10 +56,10 @@ const Subscription = () => {
                             </div>
                             <div className="flex justify-between text-white bg-[#9881AB] p-4 px-6 rounded-lg w-[100%] lg:w-[32%]">
                                 <div className="space-y-4">
-                                    <p className="text-xl">Plus</p>
+                                    <p className="text-xl">{subscriptions[1]?.planName}</p>
                                     <div className="text-4xl font-bold flex items-center">
                                         <FaRupeeSign />
-                                        <span>1200</span>
+                                        <span>{subscriptions[1]?.planCost}</span>
                                     </div>
                                     <p className="text-lg">Per Month</p>
                                 </div>
@@ -55,10 +69,10 @@ const Subscription = () => {
                             </div>
                             <div className="flex justify-between text-white bg-[#736589] p-4 px-6 rounded-lg w-[100%] lg:w-[32%]">
                                 <div className="space-y-4">
-                                    <p className="text-xl">Pro</p>
+                                    <p className="text-xl">{subscriptions[2]?.planName}</p>
                                     <div className="text-4xl font-bold flex items-center">
                                         <FaRupeeSign />
-                                        <span>1500</span>
+                                        <span>{subscriptions[2]?.planCost}</span>
                                     </div>
                                     <p className="text-lg">Per Month</p>
                                 </div>
@@ -116,7 +130,9 @@ const Subscription = () => {
                                 </form>
                             </div>
                             <div>
-                                <button className="bg-[#736589] text-nowrap h-full inline-flex px-2 gap-1 items-center text-white rounded-md">All Coupons <span className="hidden lg:inline"><IoMdAdd /></span></button>
+                                <Link href="/subscription/coupons">
+                                    <button className="bg-[#736589] text-nowrap h-full inline-flex px-2 gap-1 items-center text-white rounded-md">All Coupons <span className="hidden lg:inline"><IoMdAdd /></span></button>
+                                </Link>
                             </div>
                         </div>
                         <div className="flex flex-col lg:flex-row gap-4 lg:gap-1.5">
@@ -141,7 +157,7 @@ const Subscription = () => {
                     </div>
                 </section>
                 <div className="grid gap-4 grid-cols-1 py-4">
-                    <SubsTable />
+                    <SubsTable memeberships={memeberships} />
                     <div className="flex gap-2 px-4 mb-12 items-center justify-start md:justify-end">
                         <button onClick={() => { if (currentItem !== 0) { setCurrentItem(currentItem - 1) } }} className="bg-[#736589] text-white p-1 rounded-md"><IoIosArrowBack /></button>
                         <div>

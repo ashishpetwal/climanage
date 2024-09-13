@@ -1,6 +1,19 @@
 import Select from "./Select";
 
-const AddCouponCode = () => {
+const AddCouponCode = ({
+  couponCode,
+  setCouponCode,
+  handleChange,
+}) => {
+
+  const handleValidForPlanId = (option) => {
+    const planId = option === "Plus" ? 1 : option === "Pro" ? 2 : 3;
+    setCouponCode({
+      ...couponCode,
+      validForPlanId: planId,
+    });
+  }
+
   return (
     <>
       <section className="p-4 mx-4">
@@ -17,6 +30,9 @@ const AddCouponCode = () => {
               <input
                 type="text"
                 id="plan_name"
+                name="couponName"
+                value={couponCode.couponName}
+                onChange={handleChange}
                 className="bg-[#f9f9f9] border border-gray-300 text-gray-900 text-sm rounded-lg outline-none block w-full p-2.5"
                 placeholder="Code"
                 required
@@ -24,14 +40,16 @@ const AddCouponCode = () => {
             </div>
             <div>
               <label
-                for="first_name"
+                for="validForPlanId"
                 className="block mb-2 text-lg text-[#878787]"
               >
                 Valid For
               </label>
               <Select
                 options={["Plus", "Pro", "Plus & Pro"]}
-                onSelect={(option) => console.log(option)}
+                onSelect={(option) => {
+                  handleValidForPlanId(option);
+                }}
               />
             </div>
             <div>
@@ -43,7 +61,12 @@ const AddCouponCode = () => {
               </label>
               <Select
                 options={["Active", "Inactive", "Expired"]}
-                onSelect={(option) => console.log(option)}
+                onSelect={(option) => {
+                  setCouponCode({
+                    ...couponCode,
+                    status: option,
+                  });
+                }}
               />
             </div>
 
@@ -57,14 +80,16 @@ const AddCouponCode = () => {
               <input
                 datepicker
                 type="date"
-                value={new Date().toISOString().split("T")[0]}
+                name="startDate"
+                value={couponCode.startDate}
+                onChange={handleChange}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
                 placeholder="Select date"
               />
             </div>
             <div>
               <label
-                for="first_name"
+                for="expiryDate"
                 className="block mb-2 text-lg text-[#878787]"
               >
                 Expiry Date
@@ -72,7 +97,9 @@ const AddCouponCode = () => {
               <input
                 datepicker
                 type="date"
-                value={new Date().toISOString().split("T")[0]}
+                name="expiryDate"
+                onChange={handleChange}
+                value={couponCode.expiryDate}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
                 placeholder="Select date"
               />

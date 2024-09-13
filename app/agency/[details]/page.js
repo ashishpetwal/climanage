@@ -2,11 +2,33 @@
 import Header from "@/app/components/Header";
 import Navbar from "@/app/components/Navbar"
 import { useStateContext } from "@/app/context/state"
+import { getAgencyById } from "@/services/agency";
 import Image from "next/image";
+import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const Details = () => {
 
     const { isCollapsed } = useStateContext();
+    const router = useParams();
+    const [agency, setAgency] = useState({});
+
+    const handleChange = (e) => {
+        setAgency({
+            ...agency,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    useEffect(() => {
+        if (router.details){
+            getAgencyById(router.details).then((res) => {
+                setAgency(res);
+            }).catch((err) => {
+                console.log(err);
+            });
+        }
+    }, []);
 
     return (
         <section className="relative flex justify-center md:justify-between lg:justify-start gap-8">
@@ -19,8 +41,8 @@ const Details = () => {
                     <div className="flex items-center gap-3">
                         <Image src="/staredo.png" width={70} height={70} alt="staredo" className="rounded-lg" />
                         <div>
-                            <h2 className="text-xl font-medium text-nowrap">Staredo Digital Agency</h2>
-                            <p className="text-lg text-gray-500">abc@domain.com</p>
+                            <h2 className="text-xl font-medium text-nowrap">{agency.businessName}</h2>
+                            <p className="text-lg text-gray-500">{agency.email}</p>
                         </div>
                     </div>
                     <div className="grid grid-cols-2 md:flex items-center justify-between gap-4">
@@ -47,7 +69,7 @@ const Details = () => {
                         <div className="space-y-2 bg-white p-3 rounded-lg shadow-lg">
                             <h3 className="text-sm">Registered On</h3>
                             <div id="countries" className="bg-[#d4d4d4] bg-opacity-20 text-[#7b7b7b] text-sm rounded-lg block w-full p-1.5">
-                                Apr 9, 2024
+                                {agency.createdAt && new Date(agency.createdAt).toLocaleDateString('en-IN')}
                             </div>
                         </div>
                     </div>
@@ -58,26 +80,25 @@ const Details = () => {
                             <h3 className="text-2xl font-medium">Profile Details:</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                 <div>
-                                    <label for="first_name" class="block mb-2 text-lg text-[#878787]">First name (Owner)</label>
-                                    <input type="text" id="first_name" class="bg-[#f9f9f9] border border-gray-300 text-gray-900 text-sm rounded-lg outline-none block w-full p-2.5" placeholder="John" required />
+                                    <label for="ownerFirstName" class="block mb-2 text-lg text-[#878787]">First name (Owner)</label>
+                                    <input type="text" id="ownerFirstName" name="ownerFirstName" onChange={handleChange} value={agency.ownerFirstName} class="bg-[#f9f9f9] border border-gray-300 text-gray-900 text-sm rounded-lg outline-none block w-full p-2.5" placeholder="John" required />
                                 </div>
                                 <div>
-                                    <label for="first_name" class="block mb-2 text-lg text-[#878787]">Last name (Owner)</label>
-                                    <input type="text" id="first_name" class="bg-[#f9f9f9] border border-gray-300 text-gray-900 text-sm rounded-lg outline-none block w-full p-2.5" placeholder="John" required />
+                                    <label for="ownerLastName" class="block mb-2 text-lg text-[#878787]">Last name (Owner)</label>
+                                    <input type="text" id="ownerLastName" name="ownerLastName" onChange={handleChange} value={agency.ownerLastName} class="bg-[#f9f9f9] border border-gray-300 text-gray-900 text-sm rounded-lg outline-none block w-full p-2.5" placeholder="John" required />
                                 </div>
                                 <div>
-                                    <label for="first_name" class="block mb-2 text-lg text-[#878787]">Phone</label>
-                                    <input type="text" id="first_name" class="bg-[#f9f9f9] border border-gray-300 text-gray-900 text-sm rounded-lg outline-none block w-full p-2.5" placeholder="Phone Number" required />
+                                    <label for="phoneNumber" class="block mb-2 text-lg text-[#878787]">Phone</label>
+                                    <input type="text" id="phoneNumber" name="phoneNumber" onChange={handleChange} value={agency.phoneNumber} class="bg-[#f9f9f9] border border-gray-300 text-gray-900 text-sm rounded-lg outline-none block w-full p-2.5" placeholder="Phone Number" required />
                                 </div>
 
                                 <form>
-                                    <label for="first_name" class="block mb-2 text-lg text-[#878787]">Choose Type</label>
-                                    <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none block w-full p-2.5">
+                                    <label for="entityType" class="block mb-2 text-lg text-[#878787]">Choose Type</label>
+                                    <select id="entityType" name="entityType" onChange={handleChange} value={agency.entityType} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none block w-full p-2.5">
                                         <option selected>Choose Type</option>
-                                        <option value="1">Type 1</option>
-                                        <option value="2">Type 2</option>
-                                        <option value="3">Type 3</option>
-                                        <option value="4">Type 4</option>
+                                        <option value="AGENCY">AGENCY</option>
+                                        <option value="FREELANCER">FREELANCER</option>
+                                        <option value="COMPANY">COMPANY</option>
                                     </select>
                                 </form>
                                 <form>
@@ -91,8 +112,8 @@ const Details = () => {
                                     </select>
                                 </form>
                                 <div>
-                                    <label for="first_name" class="block mb-2 text-lg text-[#878787]">Email</label>
-                                    <input type="text" id="first_name" class="bg-[#f9f9f9] border border-gray-300 text-gray-900 text-sm rounded-lg outline-none block w-full p-2.5" placeholder="Enter Email" required />
+                                    <label for="email" class="block mb-2 text-lg text-[#878787]">Email</label>
+                                    <input type="text" id="email" name="email" onChange={handleChange} value={agency.email} class="bg-[#f9f9f9] border border-gray-300 text-gray-900 text-sm rounded-lg outline-none block w-full p-2.5" placeholder="Enter Email" required />
                                 </div>
                                 <div>
                                     <label for="first_name" class="block mb-2 text-lg text-[#878787]">Website</label>
@@ -106,11 +127,11 @@ const Details = () => {
                             <h3 className="text-2xl font-medium">Bank Details:</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                 <form>
-                                    <label for="first_name" class="block mb-2 text-lg text-[#878787]">Are you Registered</label>
-                                    <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none block w-full p-2.5">
+                                    <label for="isRegistered" class="block mb-2 text-lg text-[#878787]">Are you Registered</label>
+                                    <select id="isRegistered" name="isRegistered" value={agency.isRegistered} onChange={handleChange} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none block w-full p-2.5">
                                         <option selected>Choose Type</option>
-                                        <option value="1">Yes</option>
-                                        <option value="2">No</option>
+                                        <option value={true}>Yes</option>
+                                        <option value={false}>No</option>
                                     </select>
                                 </form>
                                 <form>
@@ -169,7 +190,7 @@ const Details = () => {
                             <h3 className="text-2xl font-medium">Address:</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                 <form>
-                                    <label for="first_name" class="block mb-2 text-lg text-[#878787]">First Line</label>
+                                    <label for="addressLine1" name="addressLine1" class="block mb-2 text-lg text-[#878787]">First Line</label>
                                     <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none block w-full p-2.5">
                                         <option selected>Choose Type</option>
                                         <option value="1">Type 1</option>

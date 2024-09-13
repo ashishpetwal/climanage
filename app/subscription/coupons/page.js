@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoMdAdd } from "react-icons/io";
@@ -9,12 +9,21 @@ import { useStateContext } from "@/app/context/state";
 import Navbar from "@/app/components/Navbar";
 import Header from "@/app/components/Header";
 import CouponTable from "@/app/components/Tables/CouponTable";
+import { getCouponData } from "@/services/coupon";
+import Link from "next/link";
 
 const Coupons = () => {
 
     const { isCollapsed } = useStateContext();
     const pages = [1, 2, 3, 4];
     const [currentItem, setCurrentItem] = useState(0);
+    const [coupons, setCoupons] = useState([]);
+
+    useEffect(() => {
+        getCouponData().then(data => {
+            setCoupons(data);
+        });
+    }, []);
 
     return (
         <section className="relative flex justify-center md:justify-between lg:justify-start gap-8">
@@ -116,7 +125,9 @@ const Coupons = () => {
                                 </form>
                             </div>
                             <div>
-                                <button className="bg-[#736589] text-nowrap h-full inline-flex px-2 gap-1 items-center text-white rounded-md">Add Coupon <span className="hidden lg:inline"><IoMdAdd /></span></button>
+                                <Link href="/subscription/coupons/add">
+                                    <button className="bg-[#736589] text-nowrap h-full inline-flex px-2 gap-1 items-center text-white rounded-md">Add Coupon <span className="hidden lg:inline"><IoMdAdd /></span></button>
+                                </Link>
                             </div>
                         </div>
                         <div className="flex flex-col lg:flex-row gap-4 lg:gap-1.5">
@@ -141,7 +152,7 @@ const Coupons = () => {
                     </div>
                 </section>
                 <div className="grid gap-4 grid-cols-1 py-4">
-                    <CouponTable />
+                    <CouponTable coupons={coupons} />
                     <div className="flex gap-2 px-4 mb-12 items-center justify-start md:justify-end">
                         <button onClick={() => { if (currentItem !== 0) { setCurrentItem(currentItem - 1) } }} className="bg-[#736589] text-white p-1 rounded-md"><IoIosArrowBack /></button>
                         <div>

@@ -151,7 +151,7 @@ const Support = () => {
                                                             borderRight: "10px solid transparent",
                                                             borderBottom: "10px solid #B9B2C4",
                                                             position: "absolute",
-                                                            top: "0px",
+                                                            top: "-1.5px",
                                                             left: "-12px"
                                                         }
                                                     } className="rotate-45"></div>
@@ -167,7 +167,7 @@ const Support = () => {
                                                         borderRight: "10px solid transparent",
                                                         borderBottom: "10px solid #B9B2C4",
                                                         position: "absolute",
-                                                        top: "0px",
+                                                        top: "-1.5px",
                                                         right: "-12px"
 
                                                     }} className="-rotate-45" ></div>
